@@ -44,6 +44,11 @@ int _printf(const char *format, ...)
                 _putchar(ch);
                 printed_chars++;
                 break;
+            case 'i':
+                ch = va_arg(args, int);
+                _putchar(ch);
+                printed_chars++;
+                break;
             case 's':
             {
                 char *str = va_arg(args, char *);
