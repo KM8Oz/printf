@@ -1,78 +1,69 @@
-#include <stdio.h>
-#include <stdarg.h>
 #include "main.h"
+
 /**
- * _printf -  a printf clone function
- * @format: function args listed
+ * _printf - Custom implementation of printf function
+ * @format: Format string
+ *
+ * Return: Number of characters printed 
+ * (excluding the null byte used to end
+ *         output to strings)
  */
 
 int _printf(const char *format, ...)
 {
-    int i;
-    int printed_chars = 0;
-    char ch;
     va_list args;
+    int num_chars_printed = 0;
+
     va_start(args, format);
 
-    while (*format != '\0')
+    while (*format)
     {
         if (*format != '%')
         {
-            _putchar(*format);
-            printed_chars++;
+            write(1, format, 1);
+            num_chars_printed++;
         }
         else
         {
             format++;
-            if (*format == '\0')
-                break;
 
             switch (*format)
             {
             case 'c':
-                ch = va_arg(args, int);
-                _putchar(ch);
-                printed_chars++;
+            {
+                char c = (char)va_arg(args, int);
+                write(1, &c, 1);
+                num_chars_printed++;
                 break;
-            case 'd':
-                ch = va_arg(args, int);
-                _putchar(ch);
-                printed_chars++;
-                break;
-            case 'p':
-                ch = va_arg(args, int);
-                _putchar(ch);
-                printed_chars++;
-                break;
-            case 'i':
-                ch = va_arg(args, int);
-                _putchar(ch);
-                printed_chars++;
-                break;
+            }
             case 's':
             {
-                char *str = va_arg(args, char *);
-                for (i=0; str[i] != '\0'; i++)
-                {
-                    _putchar(str[i]);
-                    printed_chars++;
-                }
+                char *s = va_arg(args, char *);
+                int len = 0;
+                if (s == NULL)
+                    s = "(null)";
+                while (s[len])
+                    len++;
+                write(1, s, len);
+                num_chars_printed += len;
+                break;
             }
-            break;
             case '%':
-                _putchar('%');
-                printed_chars++;
+            {
+                write(1, format, 1);
+                num_chars_printed++;
                 break;
+            }
             default:
-                _putchar('%');
-                _putchar(*format);
-                printed_chars += 2;
+            {
+                write(1, format - 1, 2);
+                num_chars_printed += 2;
                 break;
+            }
             }
         }
         format++;
     }
-
     va_end(args);
-    return printed_chars;
+    return (num_chars_printed);
 }
