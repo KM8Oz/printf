@@ -1,7 +1,6 @@
 #include "main.h"
-
 /**
- * get_flags - Calculates flags
+ * get_flag - turns on flags if _printf finds
  * a flag modifier in the format string
  * @s: character that holds the flag specifier
  * @f: pointer to the struct flags in which we turn the flags on
@@ -28,5 +27,5 @@ int get_flag(char s, flags_t *f)
 			break;
 	}
 
-	return (i)
+	return (i);
 }
