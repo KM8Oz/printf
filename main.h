@@ -21,6 +21,7 @@ typedef struct flags
 	int hash;
 } flags_t;
 
+int get_flag(char s, flags_t *f);
 
 /* SIZES */
 #define S_LONG 2
