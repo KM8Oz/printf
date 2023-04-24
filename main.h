@@ -8,6 +8,7 @@
 #include <strings.h>
 #include <ctype.h>
 #include <stdlib.h>
+
 int getlen(char *f);
 void _strrev(char *str);
 char *_itoa(int value, char *str, int base);

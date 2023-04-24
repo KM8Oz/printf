@@ -7,7 +7,7 @@
 int _putnum(int c)
 {
 int i = 0;
-char *str_num = (char *)malloc(INT16_MAX);
+char *str_num = (char *)malloc(32767);
 
 str_num = _itoa(c, str_num, 10);
 _strrev(str_num);
