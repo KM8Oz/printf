@@ -13,7 +13,7 @@ int get_flag(char s, flags_t *f)
 
 	switch (s)
 	{
-		 case '#':
+	        case '#':
                         f->hash = 1;
                         i = 1;
                         break;
