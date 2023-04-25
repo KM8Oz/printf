@@ -77,7 +77,6 @@ int print_binary(va_list l, flags_t *f);
 int print_octal(va_list l, flags_t *f);
 
 /* specifier*/
-int (*get_printHandler(char *S)(va_list l,flags_t *f);
 int get_flag(char s, flags_t *f);
 int get_modifier(char s, flags_t *f);
 int get_width(char s, flags_t *f);
