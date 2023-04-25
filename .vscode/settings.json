@@ -1,0 +1,11 @@
+{
+    "C_Cpp.errorSquiggles": "disabled",
+    "files.associations": {
+        "*.js": "javascriptreact",
+        "*.rs": "rust",
+        ".env": "bat",
+        "*.proto": "python",
+        "*.in": "rust",
+        "unistd.h": "c"
+    }
+}
